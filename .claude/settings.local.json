@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(if:*)",
+      "Bash(then ls \"public/images/projects/agentic-ai-ignite\")",
+      "Bash(else echo \"Directory agentic-ai-ignite not found\")",
+      "Bash(fi:*)",
+      "Bash(ls:*)",
+      "Bash(then echo \".next cache directory exists\")",
+      "Bash(else echo \"No .next directory found\")",
+      "Bash(npm run build:*)",
+      "Bash(cat:*)",
+      "Bash(pip:*)",
+      "Bash(pip3:*)",
+      "Bash(uvicorn:*)",
+      "Bash(fastapi --version:*)",
+      "Bash(where:*)",
+      "Bash(python:*)",
+      "Bash(dir:*)",
+      "Bash(then echo \"Backend directory exists\")",
+      "Bash(else echo \"Backend directory does NOT exist\")",
+      "Bash(mkdir:*)",
+      "Bash(venv/Scripts/pip install:*)",
+      "Bash(venv/Scripts/python:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(set:*)",
+      "Bash(venvScriptspython:*)",
+      "Bash(echo:*)",
+      "Bash(git branch:*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}
