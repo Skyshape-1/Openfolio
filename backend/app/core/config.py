@@ -1,14 +1,18 @@
 """
 Core configuration management for Mili backend.
-Loads settings from environment variables.
+Loads settings from centralized .env.local file in project root.
 """
 from pydantic_settings import BaseSettings
 from typing import List
 import json
 from dotenv import load_dotenv
+from pathlib import Path
 
-# Load .env file with override=True to ensure .env takes precedence over system env vars
-load_dotenv(override=True)
+# Load .env.local from project root (parent directory of backend/)
+# This provides a single source of truth for all environment variables
+# Path: backend/app/core/config.py -> backend -> project_root
+root_env_path = Path(__file__).parent.parent.parent.parent / ".env.local"
+load_dotenv(dotenv_path=root_env_path, override=True)
 
 
 class Settings(BaseSettings):
@@ -40,7 +44,9 @@ class Settings(BaseSettings):
             return ["http://localhost:3000"]
 
     class Config:
-        env_file = ".env"
+        # Note: env_file is ignored since we load explicitly via load_dotenv()
+        # Keeping for reference, but .env.local from root is used instead
+        env_file = ".env.local"
         case_sensitive = False
 
 
