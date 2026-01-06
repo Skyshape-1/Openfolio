@@ -53,7 +53,7 @@ async def ingest_pdf(file: UploadFile = File(...)):
 
 
 @router.post("/api/ingest-directory", response_model=IngestResponse)
-async def ingest_directory(directory: str = "./documents"):
+async def ingest_directory(directory: str = "./data/documents"):
     """
     Ingest all PDFs from a directory into vector store.
 

@@ -26,7 +26,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-# .env.local is committed with safe defaults for Next.js
+.env*.local
+.env
 backend/.env
 .env.local
 
@@ -57,7 +58,12 @@ backend/chroma_db/
 # Backend uploads
 backend/uploads/
 
-# Backend test files with sensitive data
-backend/test_api.py
+
+
+# doc
+doc/
+
+# editor settings
+.vscode/settings.json
 
 nul

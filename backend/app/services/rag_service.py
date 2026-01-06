@@ -135,7 +135,7 @@ class RAGService:
                 "error": str(e)
             }
 
-    async def ingest_from_directory(self, directory: str = "./documents") -> Dict[str, Any]:
+    async def ingest_from_directory(self, directory: str = "./data/documents") -> Dict[str, Any]:
         """
         Ingest all PDFs from a directory.
 

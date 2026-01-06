@@ -37,24 +37,33 @@ Openfolio is an intelligent portfolio website for Tangzihan Xia, featuring a cle
 
 ### Prerequisites
 - Node.js v18.17+
+- **pnpm** (preferred) or npm
 - Python 3.12+
 - pip (Python package manager)
 
 ### Frontend Setup
 
-**1. Install dependencies**
+**1. Configure environment variables**
+
+Copy the template and fill in the values:
 ```bash
-npm install
+cp .env.example .env.local
+```
+Key variable: `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000` (points to the AI backend).
+
+**2. Install dependencies**
+```bash
+pnpm install
 ```
 
-**2. Run development server**
+**3. Run development server**
 ```bash
-npm run dev
+pnpm run dev
 ```
 
-**3. Build for production**
+**4. Build for production**
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### Backend Setup (AI Assistant)
@@ -64,7 +73,7 @@ npm run build
 cd backend
 ```
 
-**2. Create virtual environment**
+**2. Create and activate virtual environment**
 ```bash
 python -m venv venv
 
@@ -82,34 +91,22 @@ pip install -r requirements.txt
 
 **4. Configure environment variables**
 
-Create a `.env` file in the backend directory:
-
-```env
-# Anthropic Claude Configuration
-ANTHROPIC_API_KEY=your-api-key-here
-ANTHROPIC_BASE_URL=https://api.anthropic.com
-LLM_MODEL=claude-3-5-sonnet-20241022
-
-# Database & Storage
-DATABASE_PATH=./chroma_db
-UPLOAD_DIR=./uploads
-MAX_FILE_SIZE=10485760
-
-# CORS Configuration
-CORS_ORIGINS=["http://localhost:3000"]
-
-# Embedding Configuration
-EMBEDDING_MODEL=all-MiniLM-L6-v2
+Create a `.env` file **inside the backend directory**:
+```bash
+cp .env.example .env
 ```
+
+Ensure `ANTHROPIC_API_KEY` is set.
 
 **5. Start the backend server**
 ```bash
+# From the backend directory
 uvicorn main:app --reload --port 8000
 ```
 
 **6. Ingest documents**
 
-Place your PDF files in the `backend/documents/` directory, then:
+Place your PDF files in the `backend/data/` (or configured) directory, then:
 
 ```bash
 # Via API
@@ -122,19 +119,13 @@ python test_api.py
 ### Content Management
 
 **Edit config:**
-```
-src/resources/once-ui.config.js
-```
+`src/resources/once-ui.config.js`
 
 **Edit content:**
-```
-src/resources/content.js
-```
+`src/resources/content.js`
 
 **Create blog posts / projects:**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
-```
+Add a new `.mdx` file to `src/app/blog/posts` or `src/app/work/projects`
 
 ## Project Structure
 

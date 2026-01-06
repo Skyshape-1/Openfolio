@@ -91,7 +91,7 @@ def validate_pdf_file(file_path: str) -> bool:
         return False
 
 
-def get_documents_from_directory(directory: str = "./documents") -> list[str]:
+def get_documents_from_directory(directory: str = "./data/documents") -> list[str]:
     """
     Get all PDF files from the documents directory.
 
